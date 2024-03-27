@@ -13,18 +13,19 @@ lightbox.refresh();
 
 export function renderImages(images) {
   galleryElement.innerHTML = '';
-  //   if (images.length === 0) {
-  //     iziToast.error({
-  //       message: 'Fill the gap',
-  //       theme: 'dark',
-  //       progressBarColor: '#FFFFFF',
-  //       color: '#EF4040',
-  //       position: 'topRight',
-  //     });
-  //     hideLoader();
-  //   } else {
-  images.forEach(image => {
-    const cardEl = `
+  if (images.length === 0) {
+    iziToast.error({
+      message:
+        'Sorry, there are no images matching your search query. Please try again!',
+      theme: 'dark',
+      progressBarColor: '#FFFFFF',
+      color: '#EF4040',
+      position: 'topRight',
+    });
+    hideLoader();
+  } else {
+    images.forEach(image => {
+      const cardEl = `
       <li class="gallery-item">
         <a href="${image.largeImageURL}" class="gallery-link">
           <img src="${image.webformatURL}" alt="${image.tags}" class="gallery-img">
@@ -37,8 +38,8 @@ export function renderImages(images) {
         </a>
       </li>
     `;
-    galleryElement.insertAdjacentHTML('beforeend', cardEl);
-  });
-  lightbox.refresh();
+      galleryElement.insertAdjacentHTML('beforeend', cardEl);
+    });
+    lightbox.refresh();
+  }
 }
-// }
