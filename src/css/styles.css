@@ -150,10 +150,6 @@ body {
   color: #2e2f42;
 }
 
-.is-hidden {
-  display: none;
-}
-
 .loader {
   width: 48px;
   height: 48px;
@@ -178,4 +174,8 @@ body {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.is-hidden {
+  display: none;
 }
