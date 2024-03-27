@@ -150,21 +150,15 @@ body {
   color: #2e2f42;
 }
 
-.loader {
+/* .loader {
   width: 48px;
   height: 48px;
   border: 5px solid #fff;
-  border-bottom-color: #00ddff;
+  border-bottom-color: #00aeff;
   border-radius: 50%;
   display: inline-block;
   box-sizing: border-box;
-  animation: rotation 1s linear infinite;
-  margin: auto;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
+  animation: rotation 10s linear infinite;
 }
 
 @keyframes rotation {
@@ -174,8 +168,39 @@ body {
   100% {
     transform: rotate(360deg);
   }
+} */
+.loader {
+  border: 8px double #d2ecaa;
+  border-radius: 50%;
+  border-top: 8px solid #38db69;
+  width: 50px;
+  height: 50px;
+  -webkit-animation: spin 20s linear infinite;
+  animation: spin 2s linear infinite;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -25px;
+  margin-left: -25px;
 }
 
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .is-hidden {
   display: none;
 }

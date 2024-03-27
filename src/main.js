@@ -7,12 +7,19 @@ const form = document.querySelector('.search-form');
 const inputElement = document.querySelector('.search-input');
 export const loaderEl = document.querySelector('.loader');
 
+function showLoader() {
+  loaderEl.classList.remove('is-hidden');
+}
+export function hideLoader() {
+  loaderEl.classList.add('is-hidden');
+}
 hideLoader();
+
 form.addEventListener('submit', submitHandle);
 
 function submitHandle(event) {
   event.preventDefault();
-
+  showLoader();
   const inputValue = inputElement.value.trim();
 
   if (inputValue !== '') {
@@ -21,6 +28,7 @@ function submitHandle(event) {
         console.log(resolve);
         renderImages(resolve.hits);
         form.reset();
+        hideLoader();
       })
       .catch(error => {
         console.log(error);
